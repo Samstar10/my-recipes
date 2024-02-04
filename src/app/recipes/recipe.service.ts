@@ -11,7 +11,7 @@ export class RecipeService {
   recipeSelected = new EventEmitter<Recipe>()
   addIngredient = new EventEmitter<Ingredient[]>
 
-  recipes: Recipe[] = [
+  private recipes: Recipe[] = [
     new Recipe(
       'Á Test Recipe',
       'This is simply a test',
@@ -36,6 +36,10 @@ export class RecipeService {
 
   getRecipes(){
     return this.recipes.slice()
+  }
+
+  getRecipe(index: number) {
+    return this.recipes[index]
   }
 
   addIngredientsToShoppingList(ingredients: Ingredient[]) {
